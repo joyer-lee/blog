@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>3D前端开发面试题目解析</title>
+    <url>/2020/10/23/3d-interview-problems/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/images/uploads/sites/2/2020/10/QQ20201023-145902@2x.png"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>在我之前的业务流程中，有幸接触到了3D前端开发的内容，从layaAir、verge到threejs,最终采用了threejs技术去实现了一个3D服装定制的效果。近期，接到了一个专业3D开发团队的面试邀请，虽然发挥的不尽人意，但仍不失为一个很好的面试经历。特将面试问题记录一下。</p>
+</blockquote>
+<h3 id="笔试题"><a href="#笔试题" class="headerlink" title="笔试题"></a>笔试题</h3><p>1.编写一种算法，若M*N矩阵中某个元素为0，则将其所在的行与列清零。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//示例：</span></span><br><span class="line">[</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line">[</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解读：二维数组矩阵中，含有0的位置，让此位置整行，整列的值都设置为0，返回修改后的数组数列。 思路：先循环矩阵数列，记录需要清零的行和列，再循环修改数组的元素值。 代码实现如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> matrix=[</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">];</span><br><span class="line"><span class="keyword">var</span> rowLength=matrix.<span class="property">length</span>,columnLength=matrix[<span class="number">0</span>].<span class="property">length</span>;</span><br><span class="line"><span class="comment">//记录需要清零的行数和列数</span></span><br><span class="line"><span class="keyword">var</span> tempR=[],tempC=[];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;rowLength;i++){</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;columnLength;j++){</span><br><span class="line">        <span class="keyword">if</span>(!matrix[i][j]){</span><br><span class="line">            tempR.<span class="title function_">push</span>(i);</span><br><span class="line">            tempC.<span class="title function_">push</span>(j);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;rowLength;i++){</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;columnLength;j++){</span><br><span class="line">        <span class="keyword">if</span>(tempR.<span class="title function_">includes</span>(i)tempC.<span class="title function_">includes</span>(j)){</span><br><span class="line">            matrix[i][j]=<span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(matrix);</span><br><span class="line"><span class="comment">//返回如下</span></span><br><span class="line"><span class="comment">//[</span></span><br><span class="line"><span class="comment">//  [1, 1, 0, 1]</span></span><br><span class="line"><span class="comment">//  [0, 0, 0, 0]</span></span><br><span class="line"><span class="comment">//  [1, 1, 0, 1]</span></span><br><span class="line"><span class="comment">//  [1, 1, 0, 1]</span></span><br><span class="line"><span class="comment">//]</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>添加搜索弹窗页面</title>
+    <url>/2020/12/08/add-search-dialog/</url>
+    <content><![CDATA[<html><head></head><body><blockquote>
+<p>仿照eclipse全局搜索UI 仿照Help-&gt;Report Issue弹出新窗口</p>
+</blockquote>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>创建顶部搜索菜单以及搜索子菜单</li>
+<li>search选项添加注册事件并触发search弹窗</li>
+<li>创建search弹窗页面</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="创建顶部菜单选项"><a href="#创建顶部菜单选项" class="headerlink" title="创建顶部菜单选项"></a>创建顶部菜单选项</h3><p>根据vscode源码结构分析，找到<code>src\vs\workbench\browser\parts\titlebar\menubarControl.ts</code>文件，新增Search一级菜单选项。 <img src="/images/uploads/sites/2/2020/12/image-20201203162722036.png"> 因为模仿<code>Report Issue</code>菜单选项操作，全局搜索到<code>Report &amp;&amp;Issue</code>字符，<code>&amp;&amp;</code>为助记符，通过观察源码猜测跟国际化，正则匹配有关。结合源码结构分析，定位到<code>src\vs\workbench\electron-sandbox\desktop.contribution.ts</code>，该文件内容符合既需要操作DOM又需要使用electron主进程API的特点。在此文件下添加注册二次菜单源码如下： <img src="/images/uploads/sites/2/2020/12/image-20201204161137916.png"></p>
+<h3 id="search选项添加注册事件"><a href="#search选项添加注册事件" class="headerlink" title="search选项添加注册事件"></a>search选项添加注册事件</h3><p>为了借鉴reportIssue菜单的事件方法，全局搜索reportIssue菜单绑定的’workbench.action.openIssueReporter‘ 相关命令。 最终确定内容文件为<code>src\vs\workbench\contrib\issue\electron-browser\issue.contribution.ts</code> 同文件夹下还有<code>src\vs\workbench\contrib\issue\browser\issue.web.contribution.ts</code>文件用于在浏览器端执行。 具体代码如下： <img src="/images/uploads/sites/2/2020/12/image-20201204163241405.png"> 在该文件下添加search命令如下： <img src="/images/uploads/sites/2/2020/12/image-20201204163438550.png"> 补充新增命令所需的同级search变量和方法，定位 accessor.get(IWorkbenchIssueService).openReporter(data);中openReporter方法定义，进入<code>'vs/workbench/contrib/issue/electron-browser/issue</code>文件，接口声明如下： <img src="/images/uploads/sites/2/2020/12/image-20201204164428298.png"> 转入接口实现文件<code>src\vs\workbench\contrib\issue\electron-browser\issueService.ts</code>,并添加<code>openSearch</code>方法。 <img src="/images/uploads/sites/2/2020/12/image-20201204173100749.png"> 注意issueService变量通过@IIssueService进行构造参数注入，转到注入的函数文件为<code>vs/platform/issue/electron-sandbox/issue</code>,实现如下： <img src="/images/uploads/sites/2/2020/12/image-20201204173312770.png"> 可知该接口继承<code>ICommonIssueService</code>,进入<code>ICommonIssueService</code>函数文件<code>vs/platform/issue/common/issue</code>找到相关open方法如下： <img src="/images/uploads/sites/2/2020/12/image-20201204173556708.png"> 添加openSearch方法参数，进入该接口实现文件<code>src\vs\platform\issue\electron-main\issueMainService.ts</code> 添加openSearch方法实现，如下：<img src="/images/uploads/sites/2/2020/12/image-20201204174231567.png"></p>
+<h3 id="创建search弹窗页面"><a href="#创建search弹窗页面" class="headerlink" title="创建search弹窗页面"></a>创建search弹窗页面</h3><p>此时已经通过注入依赖完成了渲染页面的生成，参考reportIssue页面加载路径，我们把search弹窗页面添加在<code>vs/code/electron-sandbox/search/search.html</code>目录下。 <img src="/images/uploads/sites/2/2020/12/image-20201207084948120.png"> 引入自定义js文件，在js文件中，使用bootstrop-window.js文件下定义的MonacoBootstrapWindow方法，能够加载引入的ts文件，具体如下： <img src="/images/uploads/sites/2/2020/12/image-20201207085120892.png"> 自定义一个ts文件，可在里面编写交互逻辑。</p>
+</body></html>]]></content>
+      <categories>
+        <category>vscode源码解读</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>css像素单位理解</title>
+    <url>/2020/10/21/css-pixel-unit/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前端开发网页中，css中的px是我们经常使用的一个像素单位，也是我们日常工作过程中需要考虑的有关前端适配的一个问题，那么关于px像素涉及到什么样的适配问题，以及怎样解决，下面我们就从理解前端尺寸的几个相关概念开始。</p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
+<li><p>设备尺寸 设备尺寸是指设备对角线长度</p>
+<blockquote>
+<p>我们看手机的规格参数时，通常会有屏幕尺寸的参数，单位为英寸，它代表设备屏幕尺寸的对角线长度，1英寸=2.54厘米</p>
+</blockquote>
+</li>
+<li><p>设备像素 设备像素是设备的物理像素，是屏幕成像的最小单位，其尺寸大小是绝对的，可理解为显示器的两个像素点之间的距离。</p>
+</li>
+<li><p>设备分辨率 屏长的设备像素_屏宽的设备像素 可理解为横向屏幕像素点数_竖向屏幕像素点数</p>
+</li>
+<li><p>dpi(dots per inch) 像素密度，表示水平或垂直方向没英寸长度的像素数目</p>
+</li>
+<li><p>ppi(pixels per inch) 像素密度，表示沿对角线每英寸长度的像素数目</p>
+</li>
+<li><p>设备像素比 可通过window.devicePixelRatio获得</p>
+</li>
+<li><p>设备独立像素 即css的px像素，为一个抽象概念。又叫逻辑像素。 &gt; 分辨率=设备尺寸_像素密度 &gt; 逻辑像素（px）=设备像素_设备像素比 设备像素为绝对尺寸，设屏幕宽度为1，则设备像素为1/设备分辨率，以上逻辑像素计算可转化为： &gt; 1/横向逻辑像素=1/横向设备分辨率*设备像素比 所以，逻辑像素与设备分辨率与设备像素比有关。</p>
+</li>
+</ul>
+<p>设备分辨率为绝对参数，设备像素比又由什么决定的呢？ 随着科技的发展，屏幕像素密度越来越高，从iphone4开始，苹果公司便推出了所谓的Retina屏，分辨率提高了一倍，变成640x960，但屏幕尺寸却没变化，这就意味着同样大小的屏幕上，像素却多了一倍。高清屏幕带来的问题就是设备像素愈来愈小，如果没有缩放，网页内容会看起来非常小。 在PC端缩放比例为自定义的，一般是单位逻辑像素=单位设备像素。 对移动端来说，缩放比例的确定还要根据viewport来确定。现在为理解viewport，插入视口的概念。</p>
+<blockquote>
+<p>视口指的是浏览器的可视区域，其宽度和浏览器窗口的宽度保持一致。在 CSS 标准文档中，视口也被称为初始包含块，它是所有 CSS 百分比宽度推算的根源，给 CSS 布局限制了一个最大宽度。 而移动端则较为复杂，它涉及到三个视口：布局视口（Layout Viewport）、视觉视口（Visual Viewport）和理想视口（Ideal Viewport）。 移动端为了让网页正常显示，分为布局视口与视觉视口两个独立概念，布局视口即网页内容绘制的区域，默认为980px，视觉视口即设备视口。 为了统一规范，乔布斯提出了理想视口的概念，即布局视口=视觉视口，通过viewport去设置</p>
+</blockquote>
+<p>在非理想视口的情况，逻辑像素与设备像素无关（待补充） 理想视口，即视口为设备视口，此时的逻辑像素与缩放比例有关，经过实践检验，1px=屏幕宽度的1/375，比较符合PC端的感受，根据iPhone6，放大比例为2即326:2</p>
+<blockquote>
+<p>参考 <a class="link" href="https://blog.csdn.net/lianfengzhidie/article/details/86663715?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160330174919725271731274%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=160330174919725271731274&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v28-1-86663715.pc_first_rank_v2_rank_v28&amp;utm_term=%E5%83%8F%E7%B4%A0(px)%E5%88%B0%E5%BA%95%E7%BB%9D%E5%AF%B9%E5%8D%95%E4%BD%8D%E8%BF%98%E6%98%AF%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D&amp;spm=1018.2118.3001.4187" title="像素（px）到底绝对单位还是相对单位">像素（px）到底绝对单位还是相对单位<i class="fas fa-external-link-alt"></i></a> <a class="link" href="https://zhuanlan.zhihu.com/p/59210153" title="css尺寸单位认知">css尺寸单位认知<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+</body></html>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端页面动画实现方式</title>
+    <url>/2020/10/29/front-end-animation-implementation/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/images/uploads/sites/2/2020/10/images.jpeg"></p>
+<blockquote>
+<p>实现方式： 方式一：css3 transitions属性方法 方式二：css3 animations属性方法 方式三：web animations API</p>
+</blockquote>
+<h4 id="transitions实现"><a href="#transitions实现" class="headerlink" title="transitions实现"></a>transitions实现</h4><p><strong>基本使用方法</strong></p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">transition</span>:property duration timing-function</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">*property-过渡属性</span><br><span class="line">duration-过渡时长</span><br><span class="line">timing-function-过渡方法*</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>平滑过渡多个属性</strong> 使用’,’分割多个过渡属性，示例如下：</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="selector-class">.transitions</span> {</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#a9ce07</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>) <span class="built_in">translate</span>(<span class="number">80px</span>, <span class="number">100px</span>) <span class="built_in">scale</span>(<span class="number">1.5</span>);</span><br><span class="line">   ** <span class="attribute">transition</span>: background-color <span class="number">1s</span> linear, color <span class="number">1s</span> linear, transform <span class="number">1s</span> linear; **</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.transitions</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#00ff00</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0</span>) <span class="built_in">translate</span>(<span class="number">0</span>, <span class="number">0</span>) <span class="built_in">scale</span>(<span class="number">1</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="animations实现"><a href="#animations实现" class="headerlink" title="animations实现"></a>animations实现</h4><p>不同于transitions只能通过指定属性开始值与结束值的动画实现，animations动画功能引入了关键帧的概念，通过多个关键帧可以实现更为复杂的动画效果。 <strong>使用示例</strong></p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> mycolor {</span><br><span class="line">    <span class="number">0%</span> {</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#a9ce07</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="number">40%</span> {</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="number">70%</span> {</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#ffff00</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="number">100%</span> {</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#0000ff</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.animations</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">    <span class="attribute">animation</span>: mycolor <span class="number">1s</span> linear;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>示例说明： （1）先编写关键帧集合，其中<code>mycolor</code>为关键帧集合名称 （2）关键帧代码如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="number">40%</span>{</span><br><span class="line">    样式代码</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中40%表示该帧处于动画工程中的40%处,括号内部书写关键帧需要改变的样式代码。 （3）创建好关键帧集合后，在元素的样式中通过animation属性使用该关键帧集合。 <strong>animation相关属性介绍</strong> animation-name：指定关键帧集合名称 animation-duration：动画所花费的时长 animation-timing-function：动画方法 animation-delay：动画延迟时间 animation-iteration-count：动画执行次数 animation-direction：动画执行方向 <strong>一行样式书写方式如下</strong></p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">animation</span>:name duration ti ming-function delay iteration-count-diretion;</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="Web-Animations-API"><a href="#Web-Animations-API" class="headerlink" title="Web Animations API"></a>Web Animations API</h4><p>web animations api是animations和JavaScript的结合体，可以使用JavaScript控制元素，具有和css一样的性能。 <strong>使用方法</strong> （1）定义关键帧</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> keyframes=[</span><br><span class="line">    {</span><br><span class="line">        <span class="attr">transform</span>:<span class="string">'translateX(0px) translateY(0px)'</span></span><br><span class="line">    },{</span><br><span class="line">        <span class="attr">transform</span>:<span class="string">'translateX(300px) translateY(0px)'</span></span><br><span class="line">    },{</span><br><span class="line">        <span class="attr">transform</span>:<span class="string">'translateX(300px) translateY(300px)'</span></span><br><span class="line">    }</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>说明： web Animations API 默认平均分配动画进程，若需显示定义某个关键帧的出现时刻，需要用到一个<code>offset</code>属性，属性值为一个0-1的小数点值，示例如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">transform</span>:<span class="string">'translateX(0px) translateY(0px)'</span>,</span><br><span class="line">        <span class="attr">offset</span>:<span class="number">0.2</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>若关键帧数组只有一个关键帧对象，浏览器将抛出一个NotSupportedErrorcuowu （2）设置动画相关选项，示例如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> set={</span><br><span class="line">    <span class="attr">duration</span>:<span class="number">3000</span>,</span><br><span class="line">    <span class="attr">iterations</span>:<span class="title class_">Infinity</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>其他相关选项</strong> id-动画标识符 delay-动画延迟时间 direction-动画执行方向 duration-动画花费时长 easing-指定动画方法 iterations-动画执行次数，可设置Infinity（无限次） （3）js执行动画 使用dom对象的animate方法执行动画，示例如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">elem.<span class="title function_">animate</span>(keyFrames,set)</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>vscode启动时嵌入登录页面</title>
+    <url>/2020/12/08/vscode-insert-login/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>基于vscode源码实现一个登陆页面。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>根据<a class="link" href="https://cloud.tencent.com/developer/article/1454979" title="启动流程">启动流程<i class="fas fa-external-link-alt"></i></a>，在启动之前判断是否需要登陆，若需要弹出一个登陆页面，登陆验证成功后进入应用，否则弹出错误提示，若验证超过三次退出应用。 1.找到合适的启动程序位置。在启动应用之前，判断是否需要登陆。 2.在执行启动程序位置编写登陆程序。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="确定登陆逻辑合适的编写位置"><a href="#确定登陆逻辑合适的编写位置" class="headerlink" title="确定登陆逻辑合适的编写位置"></a>确定登陆逻辑合适的编写位置</h3><p>在确定登陆逻辑位置之前，先复习下vscode源码的启动流程：</p>
+<ul>
+<li>入口是 src/main.js</li>
+<li>主进程（Main Process） 的实际调用路径是: <code>main.js -&gt; vs/code/electron-main/main.ts -&gt; vs/code/electron-main/window.ts</code> 在 <code>window.ts</code> 启动了一个<code>BrowserWindow</code> 加载了 <code>vs/code/electron-browser/workbench/workbench.html</code></li>
+<li>渲染进程（Renderer Process）的实际路径是： <code>vs/code/electron-browser/workbench/workbench.html -&gt; vs/code/electron-browser/workbench/workbench.js</code></li>
+</ul>
+<p>我们要做的是，在程序主进程渲染之前，判断并弹出一个登陆窗口。需要使用到electron的API，结合vscode源码的环境划分，我们需要把逻辑写在vs/code/electron-main/main.ts文件下。</p>
+<h3 id="登陆逻辑实现"><a href="#登陆逻辑实现" class="headerlink" title="登陆逻辑实现"></a>登陆逻辑实现</h3><p>观察ts文件代码： <img src="/images/uploads/sites/2/2020/12/image-20201207195618170.png"> 发现主要代码写在CodeMain类里。 首先贴上我的源码实现：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CodeMain</span> {</span><br><span class="line">    <span class="title function_">main</span>(loginWindow?:<span class="title class_">BrowserWindow</span>):<span class="built_in">void</span> {</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">token</span>) {</span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">createWindow</span>();</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="comment">// Launch</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">startup</span>(args).<span class="title function_">then</span>(<span class="function">()=&gt;</span>{</span><br><span class="line">                <span class="keyword">if</span>(loginWindow){</span><br><span class="line">                    loginWindow.<span class="title function_">close</span>();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> token = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//创建登录窗口</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">createWindow</span>(): <span class="built_in">void</span> {</span><br><span class="line">        <span class="comment">//子窗口</span></span><br><span class="line">        <span class="keyword">let</span> loginWindow = <span class="keyword">new</span> <span class="title class_">BrowserWindow</span>({</span><br><span class="line">            <span class="attr">width</span>: <span class="number">600</span>,</span><br><span class="line">            <span class="attr">height</span>: <span class="number">800</span>,</span><br><span class="line">            <span class="attr">frame</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">webPreferences</span>: {</span><br><span class="line">                <span class="attr">nodeIntegration</span>: <span class="literal">true</span></span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line">        <span class="comment">//加载页面</span></span><br><span class="line">        loginWindow.<span class="title function_">loadFile</span>(<span class="string">'src/vs/code/browser/workbench/login.html'</span>);</span><br><span class="line">        ipcMain.<span class="title function_">on</span>(<span class="string">'exit'</span>, <span class="keyword">function</span> (<span class="params">event</span>) {</span><br><span class="line">            loginWindow.<span class="title function_">close</span>();</span><br><span class="line">        });</span><br><span class="line">        <span class="comment">//设置一个变量记录登录次数</span></span><br><span class="line">        <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//从页面接收用户输入的账号密码</span></span><br><span class="line">        ipcMain.<span class="title function_">on</span>(<span class="string">'login'</span>, <span class="function">(<span class="params">event, username, password</span>) =&gt;</span> { <span class="comment">//如果没有数据需要传，可以不写参数</span></span><br><span class="line">            <span class="comment">//判断账号密码</span></span><br><span class="line">            <span class="keyword">if</span> (username === <span class="string">'123'</span> &amp;&amp; password === <span class="string">'123'</span>) {</span><br><span class="line">                <span class="comment">//登陆成功</span></span><br><span class="line">                <span class="comment">//隐藏登录窗口(loginWindow.close();无法启动主窗口)</span></span><br><span class="line">                dialog.<span class="title function_">showMessageBox</span>({</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">'info'</span>,</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">'登录成功'</span>,</span><br><span class="line">                    <span class="attr">message</span>: <span class="string">'登录成功'</span>,</span><br><span class="line">                    <span class="attr">buttons</span>:[<span class="string">'进入应用'</span>]</span><br><span class="line">                }).<span class="title function_">then</span>(<span class="function">()=&gt;</span>{</span><br><span class="line">                    <span class="comment">//更改标签，调用主窗口</span></span><br><span class="line">                    <span class="variable language_">this</span>.<span class="property">token</span> = <span class="literal">true</span>;</span><br><span class="line">                    <span class="comment">// Main Startup</span></span><br><span class="line">                    <span class="variable language_">this</span>.<span class="title function_">main</span>(loginWindow);</span><br><span class="line">                });</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                <span class="comment">//登录次数加 1</span></span><br><span class="line">                count++;</span><br><span class="line">                <span class="comment">//超过三次，窗口关闭</span></span><br><span class="line">                <span class="keyword">if</span> (count &gt;= <span class="number">3</span>) {</span><br><span class="line">                    <span class="comment">//返回三次登录信息</span></span><br><span class="line">                    <span class="keyword">let</span> loginMessage = <span class="string">'3次登陆失败，窗口将在1秒后关闭'</span>;</span><br><span class="line">                    loginWindow.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">'loginMessage'</span>, loginMessage);</span><br><span class="line">                    <span class="comment">//延时三秒关闭窗口</span></span><br><span class="line">                    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">                        loginWindow.<span class="title function_">close</span>();</span><br><span class="line">                    }, <span class="number">1000</span>);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="comment">//登陆失败</span></span><br><span class="line">                    <span class="comment">//返回失败信息</span></span><br><span class="line">                    <span class="keyword">let</span> loginMessage = <span class="string">'登陆失败！登录次数：'</span> + count + <span class="string">'次，共有3次！'</span>;</span><br><span class="line">                    <span class="comment">//向窗口发送登陆失败消息</span></span><br><span class="line">                    loginWindow.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">'loginMessage'</span>, loginMessage);</span><br><span class="line">                    <span class="comment">//刷新窗口，重新登陆</span></span><br><span class="line">                    loginWindow.<span class="title function_">reload</span>();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>代码解析： 1.声明一个验证变量：token 2.创建一个创建登陆窗口的方法：createWindow，内部实现使用了electron主进程api，BrowserWindow、IPC等。 3.登陆成功时需要先等待vscode主进程启动成功才能把loginWindow窗口关闭，否则会导致程序退出。 4.登陆页面的位置也是依据源码环境划分原则，放置在src/vs/code/browser/workbench目录下。</p>
+<h3 id="登陆优化计划"><a href="#登陆优化计划" class="headerlink" title="登陆优化计划"></a>登陆优化计划</h3><p>在页面运行成功后，添加login菜单选项，触发调起登陆页面。</p>
+</body></html>]]></content>
+      <categories>
+        <category>vscode源码解读</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>vscode源码初识（一）</title>
+    <url>/2020/11/11/vscode-meet-1/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><em>公司规划要做一个IDE，经过前期产品调研，确认以vscode源码为研究对象，基于vscode开发一款新的IDE产品，所以我有较长的时间需要啃懂vscode相关的技术实现，由于前期对vscode涉及的相关技术，如typescript、electron、nodejs缺乏系统了解，也无相关开发经验，因此读懂vscode源码对我来说是个大工程，希望通过博客能记录学习过程、梳理相关概念、总结技术难点，帮助我更好的上手IDE开发</em></p>
+<blockquote>
+<p>本系列前期仅能对vscode源码进行一些相对浅显的理解，后期随着项目深入，将由浅入深的分享一些开发细节。</p>
+</blockquote>
+<h2 id="本章目标"><a href="#本章目标" class="headerlink" title="本章目标"></a>本章目标</h2><p>前期研究目标</p>
+<blockquote>
+<ol>
+<li>启动vscode源码</li>
+<li>了解vscode源码基本结构</li>
+<li>了解vscode模块与模块之前的运作</li>
+<li>了解导航栏的基本操作</li>
+</ol>
+</blockquote>
+<h2 id="vscode源码运行"><a href="#vscode源码运行" class="headerlink" title="vscode源码运行"></a>vscode源码运行</h2><p>不管有没有vscode相关技术，首先需要先认识一下vscode源码的基本结构和启动流程，便于在随后的学习过程中有个侧重点。 关于启动vscode源码，网上有很多参考教程，我这里大致做一个流程总结。具体参考<a class="link" href="https://www.cnblogs.com/liulun/p/11037537.html" title="在这里">在这里<i class="fas fa-external-link-alt"></i></a>。</p>
+<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">安装git，nodejs和yarn</span><br><span class="line">安装Python27，3.x版本的不行，确保它在你的环境变量里；</span><br><span class="line">安装gulp</span><br><span class="line">npm install --global gulp-cli</span><br><span class="line"></span><br><span class="line">安装windows build tools：</span><br><span class="line">npm install --global windows-build-tools --2017</span><br><span class="line"></span><br><span class="line">安装node-gyp</span><br><span class="line">npm install -g node-gyp</span><br><span class="line"></span><br><span class="line">**用管理员的方式打开powershell**，不是管理员身份不行</span><br><span class="line">在源码根目录下执行：</span><br><span class="line">yarn 安装相关包</span><br><span class="line">yarn watch 编译项目</span><br><span class="line"></span><br><span class="line">yarn web 在浏览器中打开</span><br><span class="line"></span><br><span class="line">webstorm可通过配置启动项启动vscode客户端，由于我使用的是vscode编辑器，目前是通过双击打开vscode源码目录下的scripts/code.bat文件打开客户端，mac用户可双击scripts/code.sh文件</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="vscode基本认识"><a href="#vscode基本认识" class="headerlink" title="vscode基本认识"></a>vscode基本认识</h2><h3 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h3><p><img src="/images/uploads/sites/2/2020/11/QQ%E6%88%AA%E5%9B%BE20201111100348.png"> - 使用 Web 技术来编写 UI，用 chrome 浏览器内核来运行 - 使用 NodeJS 来操作文件系统和发起网络请求 - 使用 NodeJS C++ Addon 去调用操作系统的 native API</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── azure-pipelines.yml</span><br><span class="line">├── build/</span><br><span class="line">├── extensions/</span><br><span class="line">├── gulpfile.js</span><br><span class="line">├── out/</span><br><span class="line">├── package.json</span><br><span class="line">├── product.json</span><br><span class="line">├── resources/</span><br><span class="line">├── scripts/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── main.js</span><br><span class="line">│   └── vs</span><br><span class="line">│       ├── base/</span><br><span class="line">│       ├── code/</span><br><span class="line">│            ├── browser/</span><br><span class="line">│                 ├── workbench.ts</span><br><span class="line">│                 └── workbench/workbench.html</span><br><span class="line">│            ├── electron-browser/</span><br><span class="line">│                 ├── workbench.js</span><br><span class="line">│                 └── workbench/workbench.html</span><br><span class="line">│            └── electron-main/</span><br><span class="line">│                 ├── main.ts</span><br><span class="line">│                 └── window.ts</span><br><span class="line">│       ├── editor/</span><br><span class="line">│       ├── platform/</span><br><span class="line">│       ├── server/</span><br><span class="line">│       └── workbench/</span><br><span class="line">└── test/ //放的是各种自动化、冒烟、UI 测试脚本，这里值得学习和研究下</span><br></pre></td></tr></tbody></table></figure>
+
+<p>目录解析 - azure-pipelines.yml，它是一个 CI/CD 的配置，自动测试、构建、打包 - build/，这里面放的是 VS Code 项目的构建工具，相对来说还是比较复杂的，主要是因为它顾及了 Linux/Mac/Windows 三个平台 - extensions/，VS Code 的内置模块，包含各种语言高亮的 LSP 相关模块 - gulpfile.js，构建脚本，暂时不用细看，可以关注 package.json 的 scripts，里面放着一些程序的快捷启动方式，而且针对内存溢出做了防御，如 –max_old_space_size=4095 - out/，构建的结果都放在这个目录下 - package.json，需要着重看看 main 和 scripts 两个字段 - product.json，如果你想根据 VS Code 进行二次开发，建立自己的品牌，建议搞懂这个文件，因为你需要修改它 - resource/，打包构建生成安装包（exe/dmg/deb 等）的时候需要依赖的额外资源 - scripts/，开发过程各种会用到的脚本，用的比较多的可能是 ./scripts/code.sh - test/，放的是各种自动化、冒烟、UI 测试脚本，这里值得学习和研究下 - src/，核心源码</p>
+<h3 id="结构细分"><a href="#结构细分" class="headerlink" title="结构细分"></a>结构细分</h3><p>一下内容均摘抄至<a class="link" href="https://zhuanlan.zhihu.com/p/96041706" title="从 VSCode 看大型 IDE 技术架构">《从 VSCode 看大型 IDE 技术架构》<i class="fas fa-external-link-alt"></i></a>。 1. 隔离内核 (src) 与插件 (extensions)，内核分层模块化</p>
+<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">/src/vs：分层和模块化的 core</span><br><span class="line">/src/vs/base: 通用的公共方法和公共视图组件</span><br><span class="line">/src/vs/code: VSCode 应用主入口</span><br><span class="line">/src/vs/platform：可被依赖注入的各种纯服务</span><br><span class="line">/src/vs/editor: 文本编辑器</span><br><span class="line">/src/vs/workbench：整体视图框架</span><br><span class="line">/src/typings: 公共基础类型</span><br><span class="line">/extensions：内置插件</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="2">
+<li>每层按环境隔离 内核里面每一层代码都会遵守 electron 规范，按不同环境细分文件夹:</li>
+</ol>
+<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">common: 公共的 js 方法，在哪里都可以运行的</span><br><span class="line">browser: 只使用浏览器 API 的代码，可以调用 common</span><br><span class="line">node: 只使用 NodeJS API 的代码，可以调用 common</span><br><span class="line">electron-browser: 使用 electron 渲染线程和浏览器 API 的代码，可以调用 common，browser，node</span><br><span class="line">electron-main: 使用 electron 主线程和 NodeJS API 的代码，可以调用 common， node</span><br><span class="line">test: 测试代码</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="3">
+<li>内核代码本身也采用扩展机制: Contrib 可以看到 /src/vs/workbench/contrib 这个目录下存放着非常多的 VSCode 的小的功能单元：</li>
+</ol>
+<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">├── backup</span><br><span class="line">├── callHierarchy</span><br><span class="line">├── cli</span><br><span class="line">├── codeActions</span><br><span class="line">├── codeEditor</span><br><span class="line">├── comments</span><br><span class="line">├── configExporter</span><br><span class="line">├── customEditor</span><br><span class="line">├── debug</span><br><span class="line">├── emmet</span><br><span class="line">├──....中间省略无数....</span><br><span class="line">├── watermark</span><br><span class="line">├── webview</span><br><span class="line">└── welcome</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Contrib 有一些特点：</p>
+<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">Contrib 目录下的所有代码不允许依赖任何本文件夹之外的文件</span><br><span class="line">Contrib 主要是使用 Core 暴露的一些扩展点来做事情</span><br><span class="line">每一个 Contrib 如果要对外暴露，将API 在一个出口文件里面导出 eg: contrib/search/common/search.ts</span><br><span class="line">一个 Contrib 如果要和另一个 Contrib 发生调用，不允许使用除了出口 API 文件之外的其它文件</span><br><span class="line">接上一条，即使 Contrib 事实上可以调用另一个 Contrib 的出口 API，也要审慎的考虑并尽量避免两个 Contrib 互相依赖</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="vscode启动流程"><a href="#vscode启动流程" class="headerlink" title="vscode启动流程"></a>vscode启动流程</h2><p>具体可参照<a class="link" href="https://zhuanlan.zhihu.com/p/96041706" title="从 VSCode 看大型 IDE 技术架构">《从 VSCode 看大型 IDE 技术架构》<i class="fas fa-external-link-alt"></i></a>关于启动流程的精简链路解读。 <strong>简要描述：</strong> - 入口是 src/main.js - 主进程（Main Process） 的实际调用路径是: <code>main.js -&gt; vs/code/electron-main/main.ts -&gt; vs/code/electron-main/window.ts</code> 在 <code>window.ts</code> 启动了一个<code>BrowserWindow</code> 加载了 <code>vs/code/electron-browser/workbench/workbench.html</code> - 渲染进程（Renderer Process）的实际路径是： <code>vs/code/electron-browser/workbench/workbench.html -&gt; vs/code/electron-browser/workbench/workbench.js</code> 核心逻辑在 <code>workbench.js</code> 中，而 src 下还有一个核心目录 <code>browser</code>，它是 Web 版本的启动入口</p>
+<h3 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h3><h2 id="vscode代码调试"><a href="#vscode代码调试" class="headerlink" title="vscode代码调试"></a>vscode代码调试</h2><h2 id="vscode导航栏调试分析"><a href="#vscode导航栏调试分析" class="headerlink" title="vscode导航栏调试分析"></a>vscode导航栏调试分析</h2></body></html>]]></content>
+      <categories>
+        <category>vscode源码解读</category>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>vscode源码组织</title>
+    <url>/2020/12/04/vscode-source-organization/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>vscode由一个分层的、模块化的<code>core</code>组成（即src/vs目录），它可以通过<code>extensions</code>机制进行扩展。<code>extensions</code>运行在称为<code>extension host</code>的单独进程中,通过使用<code>extensions API</code>去实现。</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id="根目录结构"><a href="#根目录结构" class="headerlink" title="根目录结构"></a>根目录结构</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">├── build       # gulp编译构建脚本 </span><br><span class="line">├── extensions  # 内置插件 </span><br><span class="line">├── out         # 编译输出目录</span><br><span class="line">├── resources     # 平台相关静态资源，图标等 </span><br><span class="line">├── scripts       # 工具脚本，开发/测试 </span><br><span class="line">├── src           # 源码目录 </span><br><span class="line">└── test          # 测试套件</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="src下文件目录结构"><a href="#src下文件目录结构" class="headerlink" title="src下文件目录结构"></a>src下文件目录结构</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">├── bootstrap-amd.js    # 子进程实际入口</span><br><span class="line">├── bootstrap-fork.js   #</span><br><span class="line">├── bootstrap-window.js #</span><br><span class="line">├── bootstrap.js        # 子进程环境初始化</span><br><span class="line">├── buildfile.js        # 构建config</span><br><span class="line">├── cli.js              # CLI入口</span><br><span class="line">├── main.js             # 主进程入口</span><br><span class="line">├── paths.js            # AppDataPath与DefaultUserDataPath</span><br><span class="line">├── typings</span><br><span class="line">│          └── xxx.d.ts        # ts类型声明</span><br><span class="line">└── vs   </span><br><span class="line">    ├── base            # 定义基础的工具方法和基础的 DOM UI 控件   </span><br><span class="line">        │   ├── browser     # 基础UI组件，DOM操作、交互事件、DnD等  </span><br><span class="line">        │   ├── common      # diff描述，markdown解析器，worker协议，各种工具函数     </span><br><span class="line">        │   ├── node        # Node工具函数   </span><br><span class="line">        │   ├── parts       # IPC协议（Electron、Node），quickopen、tree组件   </span><br><span class="line">        │   ├── test        # base单测用例    </span><br><span class="line">        │   └── worker      # Worker factory 和 main Worker（运行IDE Core：Monaco）</span><br><span class="line">    ├── code            # VSCode Electron 应用的入口，包括 Electron 的主进程脚本入口   </span><br><span class="line">        │   ├── electron-browser # 需要 Electron 渲染器处理API的源代码（可以使用 common, browser, node）</span><br><span class="line">        │   ├── electron-main    # 需要Electron主进程API的源代码（可以使用 common, node）   </span><br><span class="line">        │   ├── node        # 需要Electron主进程API的源代码（可以使用 common, node）  </span><br><span class="line">        │   ├── test  </span><br><span class="line">        │   └── code.main.ts </span><br><span class="line"></span><br><span class="line">    ├── editor   # Monaco Editor 代码编辑器：其中包含单独打包发布的 Monaco Editor 和只能在 VSCode 的使用的部分    </span><br><span class="line">        │   ├── browser     # 代码编辑器核心   </span><br><span class="line">        │   ├── common      # 代码编辑器核心   </span><br><span class="line">        │   ├── contrib     # vscode 与独立 IDE共享的代码 </span><br><span class="line">        │   ├── standalone  # 独立 IDE 独有的代码 </span><br><span class="line">        │   ├── test    │   ├── editor.all.ts  </span><br><span class="line">        │   ├── editor.api.ts   </span><br><span class="line">        │   ├── editor.main.ts </span><br><span class="line">        │   └── editor.worker.ts  </span><br><span class="line">    ├── platform        # 依赖注入的实现和 VSCode 使用的基础服务 Services   </span><br><span class="line">    ├── workbench       # VSCode 桌面应用程序工作台的实现 </span><br><span class="line">    ├── buildunit.json   </span><br><span class="line">    ├── css.build.js    # 用于插件构建的CSS loader   </span><br><span class="line">    ├── css.js          # CSS loader   </span><br><span class="line">    ├── loader.js       # AMD loader（用于异步加载AMD模块，类似于require.js） </span><br><span class="line">    ├── nls.build.js    # 用于插件构建的 NLS loader   </span><br><span class="line">    └── nls.js          # NLS（National Language Support）多语言loader   </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h2><p><code>core</code>分为以下几层：</p>
+<ul>
+<li><code>base</code>: 提供常规实用程序和用户界面构建块</li>
+<li><code>platform</code>: 为VS Code定义服务注入支持和基本服务</li>
+<li><code>editor</code>: “ Monaco”编辑器可作为单独的可下载组件使用</li>
+<li><code>workbench</code>: 托管“Monaco”编辑器，并提供“视口”的框架，例如资源管理器，状态栏或菜单栏，并利用Electron来实现VS Code桌面应用程序。</li>
+</ul>
+<h2 id="目标环境"><a href="#目标环境" class="headerlink" title="目标环境"></a>目标环境</h2><p>VS Code的核心完全采用TypeScript实现。在每一层内部，代码都是由目标运行时环境组成的。这样可以确保仅使用运行时特定的API。在代码中，我们对目标环境做以下区分：</p>
+<ul>
+<li><p><code>common</code>目录存放的是：仅需要基本的JavaScript API，并且可以运行在其他目标环境中的源代码</p>
+</li>
+<li><p><code>browser</code>目录存放的是：需要访问browserAPI如进行DOM操作的源代码。 可以引入<code>common</code>目录下的源码</p>
+</li>
+<li><p><code>node</code>目录存放的是：引入nodejs API的源码。 可以引入<code>common</code>目录下的源码</p>
+</li>
+<li><p><code>electron-sandbox</code>目录存放的是：即需要访问browserAPI如进行DOM操作和要求浏览器API，也需要操作一小部分ElectronAPI用来和Electron主进程进行通信的源代码。 可以使用<code>common</code>、<code>browser</code>、<code>electron-sandbox</code>目录下的源码。</p>
+</li>
+<li><p><code>electro-browser</code>目录存放的是：引入了electron 渲染进程API的源码。 可以使用<code>common</code>、<code>browser</code>、<code>node</code>目录文件。</p>
+</li>
+<li><p><code>electron-main</code>目录存放的是：引入了electron主进程API的源码。 可以使用<code>common</code>、<code>node</code>目录源码。</p>
+</li>
+</ul>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>源码是通过<code>services</code>组成的，<code>services</code>更多的被定义在<code>platform</code>层中。<code>Services</code>通过<code>construction injection</code>（构造函数注入）的方式得到对应的客户端（clients）。 <code>service</code>定义分为两部分： （1）（<code>service</code>）服务的接口（<code>interface</code>） （2）服务(<code>service</code>)标识符(<code>identifier</code>) 服务标识符是必需的，因为<code>TypeScript</code>不使用标称类型而是结构性类型。 服务标识符是一种修饰器（针对<code>ES7</code>提出），并且应与服务接口具有相同的名称。 声明服务依赖关系是通过在构造函数参数中添加相应的修饰来实现的。 在下面的代码段中，<code>@ IModelService</code>是服务标识符修饰符，而<code>IModelService</code>是此参数的（可选）类型注释。 如果依赖项是可选的，请使用<code>@optional</code>装饰，否则实例化服务将引发错误。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">class Client {</span><br><span class="line">  constructor(</span><br><span class="line">    @IModelService modelService: IModelService, </span><br><span class="line">    @optional(IEditorService) editorService: IEditorService</span><br><span class="line">  ) {</span><br><span class="line">    // use services</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用实例化服务为服务使用者创建实例，例如<code>InstantiationService.createInstance（Client）</code>。 通常，当您注册为贡献内容（例如<code>Viewle</code>或<code>Language</code>）时，会为您完成此操作。</p>
+<h2 id="VS-Code-Editor的源组织"><a href="#VS-Code-Editor的源组织" class="headerlink" title="VS Code Editor的源组织"></a>VS Code Editor的源组织</h2><ul>
+<li><code>vs/editor</code>文件夹不应该有任何<code>node</code>或<code>electron-browser</code>依赖关系。</li>
+<li><code>vs/editor/common</code>和<code>vs/editor/browser</code>-代码编辑器核心（若没有这些则编辑器没有任何意义）。</li>
+<li><code>vs/editor/contrib</code>-VS Code和独立编辑器中附带的代码编辑器贡献。依照<code>browser</code>惯例，编辑器在缺失相关<code>contrib</code>的情况下，会导致相应功能被删除。</li>
+<li><code>vs/editor/standalone</code>-仅独立编辑器附带的代码。不存在别的依赖。</li>
+<li><code>vs/workbench/contrib/codeEditor</code> -VS Code中附带的代码编辑器贡献。</li>
+</ul>
+<h2 id="工作台贡献"><a href="#工作台贡献" class="headerlink" title="工作台贡献"></a>工作台贡献</h2><p>VS Code工作台（<code>vs/workbench</code>）由许多内容组成，可提供丰富的开发经验。示例包括全文搜索，集成的git和debug。从本质上讲，工作台并不直接依赖于所有这些贡献。相反，我们使用内部（而不是真正的扩展API）机制将这些<code>contrib</code>贡献给工作台。 贡献给工作台的所有贡献都存放在该<code>vs/workbench/contrib</code>文件夹中。此文件夹中有一些规则：</p>
+<ul>
+<li><code>vs/workbench/contrib</code>文件夹内部代码与外界没有任何依赖关系</li>
+<li>每个贡献都应从单个文件中公开其内部API（例如<code>vs/workbench/contrib/search/common/search.ts</code>）</li>
+<li>一个贡献可以取决于另一个贡献的内部API（例如git贡献可能取决于 <code>vs/workbench/contrib/search/common/search.ts</code>）</li>
+<li>一个贡献永远都不能进入另一个贡献的内部（内部是贡献文件中不存在于单个公共API文件中的其他内容）</li>
+<li>在让一个贡献依赖于另一个贡献之前要三思：这是否确实需要，是否有意义？是否可以通过使用工作台的可扩展性来避免这种依赖性呢？</li>
+</ul>
+</body></html>]]></content>
+      <categories>
+        <category>vscode源码解读</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>记录一次rebase操作</title>
+    <url>/2021/04/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1rebase%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="git-合并方法介绍"><a href="#git-合并方法介绍" class="headerlink" title="git 合并方法介绍"></a>git 合并方法介绍</h2><h3 id="方法一：git-merge"><a href="#方法一：git-merge" class="headerlink" title="方法一：git merge"></a>方法一：git merge</h3><p>把两个父节点及其提交记录包含起来生成一个新的节点</p>
+<h3 id="方法二：git-rebase"><a href="#方法二：git-rebase" class="headerlink" title="方法二：git rebase"></a>方法二：git rebase</h3><p>复制被rebase的提交记录到当前分支</p>
+<h2 id="记录一次rebase操作"><a href="#记录一次rebase操作" class="headerlink" title="记录一次rebase操作"></a>记录一次rebase操作</h2><blockquote>
+<p>我要进行合并啦，记录下问题</p>
+</blockquote>
+<h3 id="步骤一：合并之前分支更新到最新"><a href="#步骤一：合并之前分支更新到最新" class="headerlink" title="步骤一：合并之前分支更新到最新"></a>步骤一：合并之前分支更新到最新</h3><p>dev分支 <img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423152110.png"> add-account-view分支 <img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423152236-1.png"></p>
+<h3 id="步骤二：login-rebase-dev"><a href="#步骤二：login-rebase-dev" class="headerlink" title="步骤二：login rebase dev"></a>步骤二：login rebase dev</h3><p><img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423152606.png"> <strong>遇到冲突</strong></p>
+<h3 id="步骤三：解决冲突后，git-add，然后-rebase-–continue"><a href="#步骤三：解决冲突后，git-add，然后-rebase-–continue" class="headerlink" title="步骤三：解决冲突后，git add，然后 rebase –continue"></a>步骤三：解决冲突后，git add，然后 rebase –continue</h3><p><img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423152920.png"> 若依然存在冲突，则<strong>重复步骤三</strong>，冲突解决完毕后，结果如下： <img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423153056.png"></p>
+<blockquote>
+<p><em>错误提示</em> 当前add-account-view的状态为，需要拉取39个提交，以及推送67个提交， 按理来说我们正确的合并了dev分支，并解决了相应冲突。 那么问题为什么会出现呢？以及怎么解决这个问题呢？</p>
+</blockquote>
+<h4 id="若根据git状态拉取，则需继续解决冲突，此时冲突跟之前遇到的一样"><a href="#若根据git状态拉取，则需继续解决冲突，此时冲突跟之前遇到的一样" class="headerlink" title="若根据git状态拉取，则需继续解决冲突，此时冲突跟之前遇到的一样"></a>若根据git状态拉取，则需继续解决冲突，此时冲突跟之前遇到的一样</h4><p><img src="/images/uploads/sites/2/2021/04/I1VLL_8Q5YAQM@44EO.png"></p>
+<h4 id="继续解决重复冲突，完毕后如下"><a href="#继续解决重复冲突，完毕后如下" class="headerlink" title="继续解决重复冲突，完毕后如下"></a>继续解决重复冲突，完毕后如下</h4><p><img src="/images/uploads/sites/2/2021/04/image-20210423154134815.png"></p>
+<h4 id="回到dev分支，继续rebase"><a href="#回到dev分支，继续rebase" class="headerlink" title="回到dev分支，继续rebase"></a>回到dev分支，继续rebase</h4><p>依然存在同样冲突： <img src="/images/uploads/sites/2/2021/04/I1VLL_8Q5YAQM@44EO-2.png"> <em>继续解决冲突，完毕，依然需要pull，重新解决冲突，此时问题跟在add-account-view分支上问题一模一样。</em></p>
+<blockquote>
+<p>通过在网上查找资料，参考别人操作： 得知，正确步骤为： <img src="/images/uploads/sites/2/2021/04/ICXI9IHJVCLZE6OA0SG8.png"></p>
+</blockquote>
+<h3 id="步骤四-直接执行-git-push-–force"><a href="#步骤四-直接执行-git-push-–force" class="headerlink" title="步骤四 直接执行 git push –force"></a>步骤四 直接执行 git push –force</h3><p><img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423154746.png"></p>
+<h3 id="步骤五-成功rebase"><a href="#步骤五-成功rebase" class="headerlink" title="步骤五 成功rebase"></a>步骤五 成功rebase</h3><h3 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h3><p><img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423155042.png"></p>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><ol>
+<li>rebase之后，相对远程分支而言，本地基底发生了变化，引发了需要pull一下的提示</li>
+<li>如果确保没问题是可以强制 push的</li>
+</ol>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>相当于变基之后本地提交是： C1，C2’，C3’,C4,C5;（C2‘ C3’为目标合并分支的提交记录） 远程提交时： C1，C4，C5</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p><strong>本地提交的前三个提交跟远程的前三个提交不一致，就会提示拉取代码，此时拉取代码会把C4，C5再拉取一下</strong> 如果拉取就相当于跟我新合并的代码又冲突，还得解决一次，而且<strong>git pull默认是merge</strong>合并 <strong>git pull之后，就相当于又merge合并了一次：</strong> 把提交记录变成了： C1，C4，C5，C2’,C3’ ,C4,C5,可能后边还有其他的合并提交 同名的后一个只是副本这种，还会造成其他的合并提交 <img src="/images/uploads/sites/2/2021/04/QQ%E5%9B%BE%E7%89%8720210423160822.png"> 先强推下account分支，然后dev再rebase account分支，不然如果同时有其他同事也在提交，那就会被覆盖掉。</p>
+</body></html>]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+  </entry>
+</search>
