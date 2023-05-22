@@ -43,7 +43,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/ajax%E4%B8%8Efetch%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/ajax%E4%B8%8Efetch%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<html><head></head><body><h2 id="ajax与fetch请求的区别"><a href="#ajax与fetch请求的区别" class="headerlink" title="ajax与fetch请求的区别"></a>ajax与fetch请求的区别</h2><h3 id="关于前端样式主题化"><a href="#关于前端样式主题化" class="headerlink" title="关于前端样式主题化"></a>关于前端样式主题化</h3><h3 id="基于websocket的消息通信"><a href="#基于websocket的消息通信" class="headerlink" title="基于websocket的消息通信"></a>基于websocket的消息通信</h3><h3 id="参考elementPlus源码实现自己的svg图标库"><a href="#参考elementPlus源码实现自己的svg图标库" class="headerlink" title="参考elementPlus源码实现自己的svg图标库"></a>参考elementPlus源码实现自己的svg图标库</h3><h3 id="参考elementPlus源码实现全局组件方法"><a href="#参考elementPlus源码实现全局组件方法" class="headerlink" title="参考elementPlus源码实现全局组件方法"></a>参考elementPlus源码实现全局组件方法</h3><h3 id="如何把js项目迁移为typescript项目"><a href="#如何把js项目迁移为typescript项目" class="headerlink" title="如何把js项目迁移为typescript项目"></a>如何把js项目迁移为typescript项目</h3><h3 id="使用prettier、eslint、husky、lintstage定制开发规范"><a href="#使用prettier、eslint、husky、lintstage定制开发规范" class="headerlink" title="使用prettier、eslint、husky、lintstage定制开发规范"></a>使用prettier、eslint、husky、lintstage定制开发规范</h3><h3 id="关于前端样式主题化-1"><a href="#关于前端样式主题化-1" class="headerlink" title="关于前端样式主题化"></a>关于前端样式主题化</h3><h3 id="关于静态文档网站那些事儿"><a href="#关于静态文档网站那些事儿" class="headerlink" title="关于静态文档网站那些事儿"></a>关于静态文档网站那些事儿</h3><h3 id="关于如何提升打包效率"><a href="#关于如何提升打包效率" class="headerlink" title="关于如何提升打包效率"></a>关于如何提升打包效率</h3><h3 id="electron-嵌入项目嵌入web界面的几种方式"><a href="#electron-嵌入项目嵌入web界面的几种方式" class="headerlink" title="electron 嵌入项目嵌入web界面的几种方式"></a>electron 嵌入项目嵌入web界面的几种方式</h3><h3 id="桌面应用的几种数据存储方式"><a href="#桌面应用的几种数据存储方式" class="headerlink" title="桌面应用的几种数据存储方式"></a>桌面应用的几种数据存储方式</h3><h3 id="登录功能的实现"><a href="#登录功能的实现" class="headerlink" title="登录功能的实现"></a>登录功能的实现</h3></body></html>]]></content>
   </entry>
   <entry>
@@ -87,7 +87,7 @@
   </entry>
   <entry>
     <title>mockjs在前端项目中的应用</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/mockjs%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/mockjs%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<html><head></head><body><h3 id="使用mockjs模拟请求数据"><a href="#使用mockjs模拟请求数据" class="headerlink" title="使用mockjs模拟请求数据"></a>使用mockjs模拟请求数据</h3><blockquote>
 <p>Mock.js 是一个前端数据模拟库，它可以拦截前端代码中的 XMLHttpRequest 请求，并返回模拟的数据；在前端开发中，使用 Mock 数据可以帮助我们模拟后端接口数据，提高开发效率，同时也可以减少对后端接口的依赖。</p>
 </blockquote>
@@ -248,7 +248,7 @@
   </entry>
   <entry>
     <title>vscode项目国际化</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/vscode%E9%A1%B9%E7%9B%AE%E5%9B%BD%E9%99%85%E5%8C%96/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/vscode%E9%A1%B9%E7%9B%AE%E5%9B%BD%E9%99%85%E5%8C%96/</url>
     <content><![CDATA[<html><head></head><body><h2 id="为什么要进行国际化"><a href="#为什么要进行国际化" class="headerlink" title="为什么要进行国际化"></a>为什么要进行国际化</h2><p>国际化（i18n）是指将应用程序设计为可以轻松地适应不同语言、地区和文化的能力，更好的在海外推广国内产品。</p>
 <h2 id="国际化功能要点"><a href="#国际化功能要点" class="headerlink" title="国际化功能要点"></a>国际化功能要点</h2><p>1.多语言支持：包括界面和文档翻译、本地化应用等<br>2.多语言环境切换：切换后，读取相应的语言包内容</p>
 <h2 id="如何实现国际化（步骤）"><a href="#如何实现国际化（步骤）" class="headerlink" title="如何实现国际化（步骤）"></a>如何实现国际化（步骤）</h2><p>1.将所有需要翻译的字符串放在单独的消息文件中。如 json 格式文件，每个文件对应一个语言。<br>2.使用国际化框架或库如<code>vue-i18n</code>，这些框架可帮助管理不同语言的消息文件。<br>3.根据用户的语言环境动态加载适当的消息文件。</p>
@@ -279,7 +279,7 @@
   </entry>
   <entry>
     <title>二次封装axios</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85axios/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85axios/</url>
     <content><![CDATA[<html><head></head><body><h3 id="封装axios请求"><a href="#封装axios请求" class="headerlink" title="封装axios请求"></a>封装axios请求</h3><blockquote>
 <p>axios是一个基于promise的http请求库，可以用于浏览器和node环境。</p>
 </blockquote>
@@ -318,7 +318,7 @@
   </entry>
   <entry>
     <title>关于工业3D仿真</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%85%B3%E4%BA%8E%E5%B7%A5%E4%B8%9A3D%E4%BB%BF%E7%9C%9F/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%85%B3%E4%BA%8E%E5%B7%A5%E4%B8%9A3D%E4%BB%BF%E7%9C%9F/</url>
     <content><![CDATA[<html><head></head><body><h2 id="关于工业3D仿真"><a href="#关于工业3D仿真" class="headerlink" title="关于工业3D仿真"></a>关于工业3D仿真</h2><p>其实接触工业3D仿真业务已经有近一年的时间了，因为不是3D业务主要负责人，平时的业务侧重点并不在3D那一块，但它确实是我们的核心业务，加上我对web 3D很有渊源，来上海后的第一份工作也是对web 3D的研发，我想我很有必要对这个领域的知识进行梳理和分析。</p>
 <h3 id="背景：为什么而来，解决什么问题"><a href="#背景：为什么而来，解决什么问题" class="headerlink" title="背景：为什么而来，解决什么问题"></a>背景：为什么而来，解决什么问题</h3><p>工业仿真是一个比较宽泛的概念，有数据3D模型搭建、过程仿真等环节。在我们的业务场景中3D仿真指的是工业流程仿真。仿真技术的加持能有效提高企业开发效率，加强数据采集、分析、处理能力，减少决策失误并降低企业风险。我们公司主要的产品是工业机器人，提供产线系统集成服务。在系统集成作业中存在大量的人工作业，完全依赖人工调节，产品线遇到问题维护成本很高，且相关技术人员紧缺、培养成本高；基于此，公司想要做出一套能够模拟产线上机器人系统集成的可视化交互工具，甚至可结合机器人编程实现拓展为<code>一个跨平台工业仿真+工业机器人离线编程系统平台</code>，可为作为整个工业机器人行业的一套解决方案。</p>
 <h3 id="目标：要做成什么样的东西"><a href="#目标：要做成什么样的东西" class="headerlink" title="目标：要做成什么样的东西"></a>目标：要做成什么样的东西</h3><p>我们要做一套<code>集工业业务仿真与离线编程与一体的集成开发平台</code></p>
@@ -332,7 +332,7 @@
   </entry>
   <entry>
     <title>关于码垛流程仿真</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%85%B3%E4%BA%8E%E7%A0%81%E5%9E%9B%E6%B5%81%E7%A8%8B%E4%BB%BF%E7%9C%9F/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%85%B3%E4%BA%8E%E7%A0%81%E5%9E%9B%E6%B5%81%E7%A8%8B%E4%BB%BF%E7%9C%9F/</url>
     <content><![CDATA[<html><head></head><body><h2 id="关于码垛流程仿真"><a href="#关于码垛流程仿真" class="headerlink" title="关于码垛流程仿真"></a>关于码垛流程仿真</h2><h3 id="码垛有哪些流程"><a href="#码垛有哪些流程" class="headerlink" title="码垛有哪些流程"></a>码垛有哪些流程</h3><p><code>一般码垛流程</code><br>1.物料准备：码垛前需要准备好要码垛的物料，通常是已经包装好的成品或半成品，要保证物料的尺寸和重量符合要求。<br>2.码垛规划：根据物料的尺寸、重量和码垛的要求，制定码垛方案，包括堆垛层数、堆垛方式等。<br>3.堆垛机械运作：使用自动化的堆垛机械将物料按照码垛方案堆垛起来。常用的堆垛机械包括自动堆垛机、机械手等。<br>4.码垛质检：在码垛完成后，需要对堆垛的物料进行质检，确保码垛的质量符合要求。<br>5.包装：对已经完成码垛的物料进行包装，保护物料，以便运输和储存。<br>6.输送：将已经完成包装的物料输送到指定的地点，例如仓库或运输车辆。<br><code>码垛流程仿真</code><br>我们这里只对码垛流程中的前三个阶段进行仿真应用，且使用的自动化堆垛机械为机械手，主要功能包括：工件的输送、工件的搬运、垛型设置、机器人路径及逻辑指令设置。以下为仿真过程。<br>1.仿真项目默认存在一个空白3D场景<br>2.向3D场景中添加码垛应用使用到的机械设备，机械设备包含机器人、传送带、工件、托盘、传感器、夹爪/吸盘<br>3设置工件运输流程：通过设置传送带运动速度、运动方向、绑定工件、上料点位置、上料频率等属性参数，获取3D运动参数，在传送带末端设置传感器，当工件运动至与传送带末端时会与传感器物体碰撞，此时传送带停止运输工件，等待机器人搬运。<br>4.设置托盘垛型：载入托盘后，可自主设置托盘垛层，设置垛层绑定的工件，依次在托盘上码放绑定工件，也可自定义码放的工件顺序与层数<br>5：工件搬运流程：3D场景载入机器人并为机器人设置合适位置，设置机器人的运动路径即夹爪的起始位置、抓取工件位置、工件码放位置等，若传送带停止运输工件，则触发机器人按照规定路径运动，若工件被机器人抓走后，传送带可重新启动运输下一个工件</p>
 <h3 id="threejs-在码垛场景中的应用"><a href="#threejs-在码垛场景中的应用" class="headerlink" title="threejs 在码垛场景中的应用"></a>threejs 在码垛场景中的应用</h3><p>1.初始化场景: 创建基本的3D场景，场景中包含基本的光照、相机等元素，绑定控制器并使用webgl渲染器渲染到指定dom上<br>2.对于添加到场景中的物体，采用的是threejs 提供的模型加载器，也可结合threejs提供的创建几何体的方式添加<br>3.3D物体的运动效果可以结合threejs中的矩阵变换函数和3D缓动库tweenjs来实现（平移、旋转、缩放等效果），对于更复杂的运动需要结合相关运动学算法来实现<br>4.关于模型的压缩，可以使用draco算法以及LOD（levels of detail 多细节层次）技术或者酌情减少模型顶点进行优化</p>
 </body></html>]]></content>
@@ -435,6 +435,16 @@
       </categories>
   </entry>
   <entry>
+    <title>如何在项目中引入单元测试</title>
+    <url>/2023/04/23/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BC%95%E5%85%A5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="如何设计单元测试"><a href="#如何设计单元测试" class="headerlink" title="如何设计单元测试"></a>如何设计单元测试</h2><h2 id="怎样才算一个好的单元测试，单元测试应该包含哪些方面"><a href="#怎样才算一个好的单元测试，单元测试应该包含哪些方面" class="headerlink" title="怎样才算一个好的单元测试，单元测试应该包含哪些方面"></a>怎样才算一个好的单元测试，单元测试应该包含哪些方面</h2><p>测试思想，保证用例的覆盖率</p>
+<h3 id="前端单元测试框架如何选择"><a href="#前端单元测试框架如何选择" class="headerlink" title="前端单元测试框架如何选择"></a>前端单元测试框架如何选择</h3><h2 id="代码覆盖率-单元测试框架怎么计算覆盖率"><a href="#代码覆盖率-单元测试框架怎么计算覆盖率" class="headerlink" title="代码覆盖率-单元测试框架怎么计算覆盖率"></a>代码覆盖率-单元测试框架怎么计算覆盖率</h2><p>语句覆盖<br>分支覆盖<br>条件覆盖<br>分支-条件覆盖<br>条件组合覆盖<br>路径覆盖</p>
+</body></html>]]></content>
+      <categories>
+        <category>工作日志</category>
+      </categories>
+  </entry>
+  <entry>
     <title>工作日志 2023/3/30</title>
     <url>/2023/03/30/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%972023_3_30/</url>
     <content><![CDATA[<html><head></head><body><p>今天依然处理了一整天的vitepress项目构建问题。</p>
@@ -472,7 +482,7 @@
   </entry>
   <entry>
     <title>工作日志 2023/3/31</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%972023_3_31/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%972023_3_31/</url>
     <content><![CDATA[<html><head></head><body><p>今天的工作很零碎，也没有技术上太值得讨论的问题，今天的任务主要是检查在即将发布的项目迭代中我负责的功能模块的代码，把遗留的一点小问题处理掉并合并代码。</p>
 <p>上午处理了的问题是：</p>
 <p>（1）业务项目中，依赖的公共组件包存在类型问题</p>
@@ -491,7 +501,7 @@
   </entry>
   <entry>
     <title>简单的行业liao&#39;jie</title>
-    <url>/2023/04/21/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%972023_4_5/</url>
+    <url>/2023/05/22/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%972023_4_5/</url>
     <content><![CDATA[<html><head></head><body><p>今天是清明节，对我这打工族来说也就是居家休息的一天，距离上一篇工作日志已经过去了一个周末和两个工作日，虽然偷懒没有记录工作上的内容，但也没有完全偷懒到没有任何作为，周末两天是舒缓的两天，我观看了公司内部发布的两篇关于《回归价值本质-我们在做一个怎样的产品》与《企业战略规划洞察》的课程，这让一直埋头实现技术工作的我对公司与行业发展多了一些思考。两个工作日也没有投入特别好的状态，因为邻近项目发版，做的一些代码检查与功能联调的工作，不过对于项目中涉及的web CSP（content safe protocol）内容安全协议很感兴趣，做了一些了解。</p>
 <p>关于《回归价值的本质-我们在做一个怎样的产品》</p>
 <p>确切的说这是关于介绍产品特性、如何度量我们的产品价值、如何促进产品交易以及如何提升产品价值的宏观讨论。下面是课程主要讲述的内容：</p>
@@ -582,7 +592,7 @@
   </entry>
   <entry>
     <title>技术单词</title>
-    <url>/2023/04/21/%E8%8B%B1%E6%96%87%E5%B0%8F%E8%8F%9C/%E5%8D%95%E8%AF%8D/</url>
+    <url>/2023/05/22/%E8%8B%B1%E6%96%87%E5%B0%8F%E8%8F%9C/%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<html><head></head><body><h3 id="illustrate-v-举例；-用例子-图解等-说明；举例证明；加上插图-图解"><a href="#illustrate-v-举例；-用例子-图解等-说明；举例证明；加上插图-图解" class="headerlink" title="illustrate v.举例；(用例子,图解等)说明；举例证明；加上插图[图解]"></a>illustrate v.举例；(用例子,图解等)说明；举例证明；加上插图[图解]</h3><p>美: [ˈɪləˌstreɪt] 英: [ˈɪləstreɪt] </p>
 <h3 id="palette-n-调色板；（画家使用的）主要色彩"><a href="#palette-n-调色板；（画家使用的）主要色彩" class="headerlink" title="palette n.	调色板；（画家使用的）主要色彩"></a>palette n.	调色板；（画家使用的）主要色彩</h3><p>美: [ˈpælət]<br>英: [‘pælət]<br>网络	调色盘；画板；面板<br>eg.Command Palette</p>
 <h3 id="iteration-n-迭代；（计算机）新版软件"><a href="#iteration-n-迭代；（计算机）新版软件" class="headerlink" title="iteration n.	迭代；（计算机）新版软件"></a>iteration n.	迭代；（计算机）新版软件</h3><p>美: [ˌɪtəˈreɪʃ(ə)n]<br>英: [.ɪtə’reɪʃ(ə)n]<br>网络	反复；叠代；反覆</p>
@@ -676,11 +686,6 @@
 <h3 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h3><ul>
 <li>引入单元测试：<br>工作中常见的测试范围为：<br>1.通用、公用的Utils函数<br>2.复杂交互操作逻辑<br>对于隐藏在模板中的逻辑，单元测试很难覆盖，因此在编写业务逻辑的时候，尽可能把代码写在js或ts中；<br>可以在项目中采用驱动测试开发，以测试来驱动业务逻辑。</li>
 </ul>
-<h3 id="设计自己的工作流"><a href="#设计自己的工作流" class="headerlink" title="设计自己的工作流"></a>设计自己的工作流</h3><p>实验项目：inktank-core<br>目标：</p>
-<ol>
-<li>代码要符合项目规范</li>
-<li>CR 后的代码都是能准确执行的<br>目标1： 通过Code Review<br>目标2：需要测试功能</li>
-</ol>
 </body></html>]]></content>
       <categories>
         <category>大前端技术圈</category>
