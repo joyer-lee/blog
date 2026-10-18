@@ -4,7 +4,7 @@ title: 二次封装axios
 tags: []
 categories: 
     - - 工作日志
-date: 2023-04-13 10:38：00
+date: 2023-04-13 10:38:00
 ---
 ### 封装axios请求
 > axios是一个基于promise的http请求库，可以用于浏览器和node环境。

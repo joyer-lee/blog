@@ -13,7 +13,10 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://lhx.blog.wj2015.com
+url: https://joyer-lee.github.io/blog/
+root: /blog/
+# 自定义脚本 scripts/image.js 用于拼接文章图片的根路径
+imageRoot: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:

@@ -1,3 +1,11 @@
+---
+title: ajax与fetch请求的区别
+tags: []
+categories:
+  - - 工作日志
+date: 2023-04-12 21:31:00
+---
+
 ## ajax与fetch请求的区别
 
 ### 关于前端样式主题化
