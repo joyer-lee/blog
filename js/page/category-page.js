@@ -1,0 +1,6 @@
+function resetCategoriesPage(){const r=e=>{e.forEach(e=>{const t=e.querySelector(".site-all-category-list-link");const s=e.querySelector(".site-all-category-list-count");const l=e.querySelector(".site-all-category-list-child");let i=`
+            <div class="self-category-info border-box">
+              <div class="left border-box">${l?'<i class="icon border-box fa-regular fa-square-plus"></i> ':""}${t.outerHTML}</div>
+              <div class="right border-box">${s.outerHTML}</div>
+            </div>
+          `;if(l){r(l.querySelectorAll(".site-all-category-list-item"));i+=l.outerHTML}e.innerHTML=i})};const e=()=>{const e=document.querySelectorAll(".site-all-category-list-item");e.forEach(e=>{let t=false;const s=e.querySelector(".self-category-info .left .icon");const l=e.querySelector(".site-all-category-list-child");s&&s.addEventListener("click",()=>{t=!t;if(l){if(t){l.style.height="auto";l.style.visibility="visible";s.classList.add("fa-square-minus");s.classList.remove("fa-square-plus")}else{l.style.height="0";l.style.visibility="hidden";s.classList.add("fa-square-plus");s.classList.remove("fa-square-minus")}}})})};r(document.querySelectorAll(".site-all-category-list .site-all-category-list-item"));e()}if(KEEP.theme_config.pjax.enable===true&&KEEP.utils){resetCategoriesPage()}else{window.addEventListener("DOMContentLoaded",resetCategoriesPage)}
