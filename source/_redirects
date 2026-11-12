@@ -1,0 +1,5 @@
+# Netlify 改写规则（hexo generate 会原样拷贝到 public/_redirects）
+# 自定义域名 lhx.blog.wj2015.com 由 Netlify 挂在根路径，而 Hexo 构建产物
+# 带 /blog/ 前缀（GitHub Pages 项目站路径）。此规则让带前缀的请求改写到
+# 根路径，两边部署同时可用；200 = 改写不改 URL，静态资源不产生跳转。
+/blog/* /:splat 200
